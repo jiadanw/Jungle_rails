@@ -3,8 +3,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @items = @order.line_items
-    p @order
-    p @items
+   
   end
 
   def create
@@ -37,6 +36,8 @@ class OrdersController < ApplicationController
       currency:    'cad'
     )
   end
+  
+
 
   def create_order(stripe_charge)
     order = Order.new(
@@ -58,5 +59,7 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
+
+
 
 end
